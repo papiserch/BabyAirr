@@ -59,10 +59,10 @@ void BabyAirAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
     mixSmooth.reset (sampleRate, 0.03);
     outSmooth.reset (sampleRate, 0.03);
 
-    mhSmooth.setCurrentAndSetTargetValue  (*pMH  / 100.f);
-    hSmooth.setCurrentAndSetTargetValue   (*pH   / 100.f);
-    mixSmooth.setCurrentAndSetTargetValue (*pMix / 100.f);
-    outSmooth.setCurrentAndSetTargetValue (juce::Decibels::decibelsToGain (pOut->load()));
+    mhSmooth.setCurrentAndTargetValue  (*pMH  / 100.f);
+    hSmooth.setCurrentAndTargetValue   (*pH   / 100.f);
+    mixSmooth.setCurrentAndTargetValue (*pMix / 100.f);
+    outSmooth.setCurrentAndTargetValue (juce::Decibels::decibelsToGain (pOut->load()));
 }
 
 bool BabyAirAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
